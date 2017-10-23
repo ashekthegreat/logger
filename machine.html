@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="logger">
+<head>
+    <meta charset="UTF-8">
+    <title>Log</title>
+
+    <link rel="shortcut icon" href="favicon.ico?v=2" type="image/x-icon" />
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+
+    <script src="assets/libs/jquery-2.1.4.min.js"></script>
+    <script src="assets/libs/underscore-min.js"></script>
+    <script src="assets/libs/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <script src="app/app.module.js"></script>
+    <script src="app/machine.controller.js"></script>
+
+</head>
+<body ng-controller="MachineController" class="machine-body">
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="projectName">This is an instance of </label>
+            <input type="text" class="form-control" id="projectName" placeholder="Project Name" ng-model="projectName">
+        </div>
+    </form>
+    <br>
+    <div>
+        <button type="button" class="btn btn-primary btn-action"
+                ng-repeat="state in states track by $index"
+                ng-click="sendMessage(state)"
+                ng-disabled="!projectName">{{state}}</button>
+    </div>
+</body>
+</html>

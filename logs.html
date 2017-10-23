@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app="logger">
+<head>
+    <meta charset="UTF-8">
+    <title>Log</title>
+
+    <link rel="shortcut icon" href="favicon.ico?v=2" type="image/x-icon" />
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css"/>
+
+    <script src="assets/libs/jquery-2.1.4.min.js"></script>
+    <script src="assets/libs/underscore-min.js"></script>
+    <script src="assets/libs/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <script src="app/app.module.js"></script>
+    <script src="app/log.controller.js"></script>
+
+</head>
+<body ng-controller="LogController" class="logs-body">
+
+    <h1>Logs <small><small>(<a href="javascript:;" ng-click="load()">All</a> | <a href="javascript:;" ng-click="load('Babel')">Babel</a> | <a href="javascript:;" ng-click="load('Kelsey')">Kelsey</a>)</small></small></h1>
+
+    <div class="list-group">
+        <div class="list-group-item" ng-repeat="log in logs | orderBy:'-logTime'">
+            <p class="list-group-item-text">
+                <small class="pull-right"><em>{{log.logTime | date:'medium'}}</em></small>
+                <span class="label label-primary" ng-class="{'label-info': log.appName=='Kelsey'}">{{log.appName}}</span> {{log.message}}
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
