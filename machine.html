@@ -12,6 +12,12 @@
     <script src="assets/libs/jquery-2.1.4.min.js"></script>
     <script src="assets/libs/underscore-min.js"></script>
     <script src="assets/libs/angular.min.js"></script>
+    <script src="assets/libs/angular-animate.min.js"></script>
+
+    <!--Chart-->
+    <script src="assets/libs/Chart.min.js"></script>
+    <script src="assets/libs/angular-chart.min.js"></script>
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
     <!-- AngularFire -->
@@ -36,6 +42,10 @@
                 ng-repeat="state in states track by $index"
                 ng-click="sendMessage(state)"
                 ng-disabled="!projectName">{{state}}</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-danger" ng-click="startCpuLogging()">Start logging CPU</button>
+        <button type="button" class="btn btn-danger" ng-click="stopCpuLogging()">Stop logging CPU</button>
     </div>
 </body>
 </html>

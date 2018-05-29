@@ -9,7 +9,7 @@
     };
     firebase.initializeApp(config);
 
-    angular.module("logger", ["firebase"]).factory('messageFactory', function() {
+    angular.module('logger', ['ngAnimate', 'chart.js', 'firebase']).factory('messageFactory', function() {
         return {
             messages: [
                 "Start machine",

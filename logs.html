@@ -12,6 +12,12 @@
     <script src="assets/libs/jquery-2.1.4.min.js"></script>
     <script src="assets/libs/underscore-min.js"></script>
     <script src="assets/libs/angular.min.js"></script>
+    <script src="assets/libs/angular-animate.min.js"></script>
+
+    <!--Chart-->
+    <script src="assets/libs/Chart.min.js"></script>
+    <script src="assets/libs/angular-chart.min.js"></script>
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
     <!-- AngularFire -->
@@ -33,6 +39,10 @@
                 <span class="label label-primary" ng-class="{'label-info': log.appName=='Kelsey'}">{{log.appName}}</span> {{log.message}}
             </p>
         </div>
+    </div>
+
+    <div>
+        <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="chartLabels" chart-options="options" height="70"></canvas>
     </div>
 
 </body>
